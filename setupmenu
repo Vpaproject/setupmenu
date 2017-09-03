@@ -1,37 +1,26 @@
 #!/bin/bash
 
 cd
-
 sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.local
-
 sed -i '$ i\screen -AmdS ban /root/ban.sh' /etc/rc.local
-
 sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.d/rc.local
-
 sed -i '$ i\screen -AmdS ban /root/ban.sh' /etc/rc.d/rc.local
-
 echo "0 0 * * * root /usr/local/bin/user-expire" > /etc/cron.d/user-expire
-
 echo "0 0 * * * root /usr/local/bin/user-expire-pptp" > /etc/cron.d/user-expire-pptp
 
 cat > /root/ban.sh <<END3
 #!/bin/bash
 #/usr/local/bin/user-ban
-
 END3
 
 cat > /root/limit.sh <<END3
 #!/bin/bash
 #/usr/local/bin/user-limit
-
 END3
 
 cd /usr/local/bin
-
-wget -O premium-script.tar.gz "http://script.hostingtermurah.net/repo/premiumscript/premium-script.tar.gz"
-
+wget premium-script.tar.gz "http://script.hostingtermurah.net/repo/premiumscript/premium-script.tar.gz"
 tar -xvf premium-script.tar.gz
-
 rm -f premium-script.tar.gz
 
 cp /usr/local/bin/premium-script /usr/local/bin/menu
@@ -84,3 +73,5 @@ chmod +x /root/ban.sh
 screen -AmdS limit /root/limit.sh
 screen -AmdS ban /root/ban.sh
 clear
+cd
+echo "Premium Script Telah Berhasil Di Update!"

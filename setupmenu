@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 cd
 
 sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.local
